@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:hal.science)",
+      "WebFetch(domain:intrusion-detection.distrinet-research.be)",
+      "PowerShell(head -20)",
+      "Bash(python3 -c ' *)",
+      "Bash(.venv/Scripts/python -c ' *)",
+      "WebFetch(domain:lycos-ids.univ-lemans.fr)",
+      "WebFetch(domain:www.unb.ca)",
+      "Bash(python -c ' *)"
+    ]
+  }
+}
