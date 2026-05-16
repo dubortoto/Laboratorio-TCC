@@ -1,27 +1,118 @@
 # Tarefas de Melhoria do Laboratório
 
-Este documento lista as melhorias identificadas no final do Capítulo 5 do TCC, estruturadas em partes para permitir a implementação gradual e a comparação empírica de cada otimização no laboratório.
+Este documento mapeia todas as permutações de experimentos a serem realizados, combinando as três melhorias identificadas no Capítulo 5 do TCC: uso do LycoS-IDS2017, redução de dimensionalidade (MDI) e abordagem não supervisionada.
 
-## 1. Redução de Dimensionalidade (Seleção de Características)
-- [ ] Remover previamente características identificadoras ou enviesadas do dataset (Flow ID, Source IP, Source Port, Destination IP, Destination Port, Protocol, Timestamp e duplicatas de Fwd Header Length) para reduzir o risco de overfitting.
-- [ ] Aplicar a técnica de seleção de características baseada no *Mean Decrease in Impurity* (MDI).
-- [ ] Utilizar o algoritmo *Random Forest* para identificar as *features* mais relevantes do dataset.
-- [ ] Treinar os modelos (com destaque para a Rede Neural Profunda - DNN) utilizando o conjunto reduzido de características de entrada.
-- [ ] Comparar o tempo de treinamento e a eficácia preditiva com os resultados originais (alta dimensionalidade).
+---
 
-## 2. Implementação de Arquitetura Híbrida
-- [ ] Desenvolver um filtro leve de primeiro estágio baseado em assinaturas (como um Filtro de Bloom).
-- [ ] Configurar o filtro para identificar e descartar rapidamente o tráfego de rede estritamente benigno conhecido.
-- [ ] Encaminhar exclusivamente o tráfego suspeito ou não reconhecido pelo filtro para a classificação profunda da DNN.
-- [ ] Avaliar a diminuição na sobrecarga computacional e no tempo de classificação do sistema como um todo.
+## Experimentos Supervisionados (RF + DNN)
 
-## 3. Substituição e Aprimoramento do Dataset
-- [ ] Substituir a base de dados CICIDS2017 original por uma versão refinada e com falhas corrigidas, como o dataset **LycoS-IDS2017**.
-- [ ] *(Opcional/Avançado)* Explorar o uso de Aprendizado Federado utilizando múltiplos conjuntos heterogêneos.
-- [ ] Refazer os testes de estabilidade e reavaliar a capacidade de generalização dos modelos com os novos dados.
+Os cenários de treino são: **Completo** (todas as classes), **Sem XSS** e **Sem PortScan**.
 
-## 4. Abordagem Não Supervisionada para Detecção de Anomalias
-- [ ] Transitar da classificação supervisionada para um modelo **não supervisionado** (ex: *Autoencoder* / HSAE).
-- [ ] Treinar o modelo utilizando **exclusivamente** o fluxo de dados benigno, para que ele aprenda o padrão de "normalidade".
-- [ ] Testar o desempenho do modelo em cenários com ataques omitidos no treinamento (como o teste sem a classe *PortScan*).
-- [ ] Validar se a nova abordagem consegue flagrar ameaças inéditas (*zero-day*) como desvios do comportamento normal.
+### Baseline — CICIDS2017, sem redução de dimensionalidade
+- [x] Completo
+- [x] Sem XSS no treino
+- [x] Sem PortScan no treino
+
+### Melhoria A — LycoS-IDS2017, sem redução de dimensionalidade
+- [ ] Completo (RF + DNN)
+- [ ] Sem XSS no treino (RF + DNN)
+- [ ] Sem PortScan no treino (RF + DNN)
+
+### Melhoria B — CICIDS2017, com redução de dimensionalidade (MDI via RF)
+- [x] Completo (DNN com features reduzidas) *(script existente em `Redução de Dimensionalidade/`)*
+- [ ] Sem XSS no treino
+- [ ] Sem PortScan no treino
+
+### Melhoria C — LycoS-IDS2017, com redução de dimensionalidade (MDI via RF)
+- [x] Completo (DNN com features reduzidas) *(script existente em `Redução de Dimensionalidade/`)*
+- [ ] Sem XSS no treino
+- [ ] Sem PortScan no treino
+
+---
+
+## Experimentos Não Supervisionados (Autoencoder)
+
+> O treino é realizado **exclusivamente com tráfego BENIGN** — não há distinção de "sem XSS/PortScan no treino". Os cenários referem-se ao **conjunto de teste** utilizado para avaliação.
+
+### Pré-requisitos (implementação única)
+- [x] Definir e implementar a arquitetura do Autoencoder (78→64→32→16→32→64→78, MSE). *(em `Não Supervisionado/Autoencoder - cicids2017.ipynb`)*
+- [x] Definir a estratégia de limiar de anomalia (95º percentil do erro de reconstrução no treino BENIGN).
+
+### Melhoria D — CICIDS2017, sem redução de dimensionalidade
+- [ ] Avaliado no conjunto de teste completo
+- [ ] Avaliado no conjunto de teste com XSS (ataque não visto no treino supervisionado equivalente)
+- [ ] Avaliado no conjunto de teste com PortScan (ataque não visto no treino supervisionado equivalente)
+
+### Melhoria E — LycoS-IDS2017, sem redução de dimensionalidade
+- [ ] Avaliado no conjunto de teste completo
+- [ ] Avaliado no conjunto de teste com XSS
+- [ ] Avaliado no conjunto de teste com PortScan
+
+### Melhoria F — CICIDS2017, com redução de dimensionalidade (MDI)
+- [ ] Avaliado no conjunto de teste completo
+- [ ] Avaliado no conjunto de teste com XSS
+- [ ] Avaliado no conjunto de teste com PortScan
+
+### Melhoria G — LycoS-IDS2017, com redução de dimensionalidade (MDI)
+- [ ] Avaliado no conjunto de teste completo
+- [ ] Avaliado no conjunto de teste com XSS
+- [ ] Avaliado no conjunto de teste com PortScan
+
+---
+
+## Adendo: Inventário de Scripts
+
+### Legenda
+- ✅ Existe e foi executado
+- 🟡 Script criado, ainda não executado
+- ❌ Não existe
+
+### Supervisionados — CICIDS2017
+
+| Script | Status |
+|---|---|
+| DNN - Completo | ✅ |
+| RF - Completo | ✅ |
+| DNN - Sem XSS no treino | ✅ |
+| RF - Sem XSS no treino | ✅ |
+| DNN - Sem PortScan no treino | ✅ |
+| RF - Sem PortScan no treino | ✅ |
+
+### Supervisionados — LycoS-IDS2017
+
+| Script | Status |
+|---|---|
+| DNN - Completo | ❌ |
+| RF - Completo | ❌ |
+| DNN - Sem XSS no treino | ❌ |
+| RF - Sem XSS no treino | ❌ |
+| DNN - Sem PortScan no treino | ❌ |
+| RF - Sem PortScan no treino | ❌ |
+
+### Redução de Dimensionalidade (MDI via RF → DNN)
+
+| Script | Status |
+|---|---|
+| CICIDS2017 - Completo | ✅ |
+| CICIDS2017 - Sem XSS no treino | ❌ |
+| CICIDS2017 - Sem PortScan no treino | ❌ |
+| LycoS - Completo | ✅ |
+| LycoS - Sem XSS no treino | ❌ |
+| LycoS - Sem PortScan no treino | ❌ |
+
+### Não Supervisionados (Autoencoder)
+
+| Script | Status |
+|---|---|
+| CICIDS2017 - Teste completo | 🟡 (script criado, não executado) |
+| CICIDS2017 - Teste com XSS | 🟡 (script criado, não executado) |
+| CICIDS2017 - Teste com PortScan | 🟡 (script criado, não executado) |
+| LycoS - Teste completo | ❌ |
+| LycoS - Teste com XSS | ❌ |
+| LycoS - Teste com PortScan | ❌ |
+| CICIDS2017 + MDI - Teste completo | ❌ |
+| CICIDS2017 + MDI - Teste com XSS | ❌ |
+| CICIDS2017 + MDI - Teste com PortScan | ❌ |
+| LycoS + MDI - Teste completo | ❌ |
+| LycoS + MDI - Teste com XSS | ❌ |
+| LycoS + MDI - Teste com PortScan | ❌ |
