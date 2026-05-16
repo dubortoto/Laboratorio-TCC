@@ -14,17 +14,19 @@ Os cenários de treino são: **Completo** (todas as classes), **Sem XSS** e **Se
 - [x] Sem PortScan no treino
 
 ### Melhoria A — LycoS-IDS2017, sem redução de dimensionalidade
+> Dados disponíveis para todos os cenários (`dataset tratado/lycos-cicids2017/Sem Redução de Dimensionalidade/`). Faltam apenas os scripts.
 - [ ] Completo (RF + DNN)
 - [ ] Sem XSS no treino (RF + DNN)
 - [ ] Sem PortScan no treino (RF + DNN)
 
 ### Melhoria B — CICIDS2017, com redução de dimensionalidade (MDI via RF)
-- [x] Completo (DNN com features reduzidas) *(script existente em `Redução de Dimensionalidade/`)*
+- [ ] Completo (DNN com features reduzidas)
 - [ ] Sem XSS no treino
 - [ ] Sem PortScan no treino
 
 ### Melhoria C — LycoS-IDS2017, com redução de dimensionalidade (MDI via RF)
-- [x] Completo (DNN com features reduzidas) *(script existente em `Redução de Dimensionalidade/`)*
+> Dados de entrada disponíveis para todos os cenários. Scripts de redução existem (🟡); faltam scripts de treino DNN.
+- [ ] Completo (DNN com features reduzidas)
 - [ ] Sem XSS no treino
 - [ ] Sem PortScan no treino
 
@@ -89,16 +91,33 @@ Os cenários de treino são: **Completo** (todas as classes), **Sem XSS** e **Se
 | DNN - Sem PortScan no treino | ❌ |
 | RF - Sem PortScan no treino | ❌ |
 
-### Redução de Dimensionalidade (MDI via RF → DNN)
+### Redução de Dimensionalidade (scripts MDI via RF)
+
+> Um único notebook por dataset gera todos os cenários (Completo, Sem XSS, Sem PortScan, Balanced).
 
 | Script | Status |
 |---|---|
 | CICIDS2017 - Completo | ✅ |
+| CICIDS2017 - Sem XSS no treino | 🟡 |
+| CICIDS2017 - Sem PortScan no treino | 🟡 |
+| CICIDS2017 - Balanced | 🟡 |
+| LycoS - Completo | ✅ |
+| LycoS - Sem XSS no treino | 🟡 |
+| LycoS - Sem PortScan no treino | 🟡 |
+| LycoS - Balanced | 🟡 |
+
+### Treinamento DNN — Com Redução de Dimensionalidade
+
+| Script | Status |
+|---|---|
+| CICIDS2017 - Completo | 🟡 |
 | CICIDS2017 - Sem XSS no treino | ❌ |
 | CICIDS2017 - Sem PortScan no treino | ❌ |
-| LycoS - Completo | ✅ |
+| CICIDS2017 - Balanced | 🟡 |
+| LycoS - Completo | 🟡 |
 | LycoS - Sem XSS no treino | ❌ |
 | LycoS - Sem PortScan no treino | ❌ |
+| LycoS - Balanced | 🟡 |
 
 ### Não Supervisionados (Autoencoder)
 
