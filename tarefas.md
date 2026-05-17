@@ -19,10 +19,9 @@ Os cenários de treino são: **Completo** (todas as classes), **Sem XSS** e **Se
 - [x] Sem PortScan no treino (RF + DNN)
 
 ### Melhoria B — CICIDS2017, com redução de dimensionalidade (MDI via RF)
-> Scripts criados (🟡). Falta executar e coletar os resultados.
-- [ ] Completo (DNN com features reduzidas)
-- [ ] Sem XSS no treino
-- [ ] Sem PortScan no treino
+- [x] Completo (DNN com features reduzidas)
+- [x] Sem XSS no treino
+- [x] Sem PortScan no treino
 
 ### Melhoria C — LycoS-IDS2017, com redução de dimensionalidade (MDI via RF)
 > Scripts criados (🟡). Falta executar e coletar os resultados.
@@ -110,10 +109,10 @@ Os cenários de treino são: **Completo** (todas as classes), **Sem XSS** e **Se
 
 | Script | Status |
 |---|---|
-| CICIDS2017 - Completo | 🟡 |
-| CICIDS2017 - Sem XSS no treino | 🟡 |
-| CICIDS2017 - Sem PortScan no treino | 🟡 |
-| CICIDS2017 - Balanced | 🟡 |
+| CICIDS2017 - Completo | ✅ |
+| CICIDS2017 - Sem XSS no treino | ✅ |
+| CICIDS2017 - Sem PortScan no treino | ✅ |
+| CICIDS2017 - Balanced | ✅ |
 | LycoS - Completo | 🟡 |
 | LycoS - Sem XSS no treino | 🟡 |
 | LycoS - Sem PortScan no treino | 🟡 |
