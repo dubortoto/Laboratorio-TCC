@@ -10,7 +10,9 @@
       "Bash(.venv/Scripts/python -c ' *)",
       "WebFetch(domain:lycos-ids.univ-lemans.fr)",
       "WebFetch(domain:www.unb.ca)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "Bash(python criar_autoencoders.py)",
+      "Bash(del \"c:\\\\Users\\\\e\\\\Desktop\\\\Faculdade\\\\TCC\\\\Laboratório\\\\criar_autoencoders.py\")"
     ]
   }
 }

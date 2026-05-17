@@ -40,23 +40,15 @@ Os cenários de treino são: **Completo** (todas as classes), **Sem XSS** e **Se
 
 ### Melhoria D — CICIDS2017, sem redução de dimensionalidade
 - [ ] Avaliado no conjunto de teste completo
-- [ ] Avaliado no conjunto de teste com XSS (ataque não visto no treino supervisionado equivalente)
-- [ ] Avaliado no conjunto de teste com PortScan (ataque não visto no treino supervisionado equivalente)
 
 ### Melhoria E — LycoS-IDS2017, sem redução de dimensionalidade
 - [ ] Avaliado no conjunto de teste completo
-- [ ] Avaliado no conjunto de teste com XSS
-- [ ] Avaliado no conjunto de teste com PortScan
 
 ### Melhoria F — CICIDS2017, com redução de dimensionalidade (MDI)
 - [ ] Avaliado no conjunto de teste completo
-- [ ] Avaliado no conjunto de teste com XSS
-- [ ] Avaliado no conjunto de teste com PortScan
 
 ### Melhoria G — LycoS-IDS2017, com redução de dimensionalidade (MDI)
 - [ ] Avaliado no conjunto de teste completo
-- [ ] Avaliado no conjunto de teste com XSS
-- [ ] Avaliado no conjunto de teste com PortScan
 
 ---
 
@@ -96,13 +88,13 @@ Os cenários de treino são: **Completo** (todas as classes), **Sem XSS** e **Se
 | Script | Status |
 |---|---|
 | CICIDS2017 - Completo | ✅ |
-| CICIDS2017 - Sem XSS no treino | 🟡 |
-| CICIDS2017 - Sem PortScan no treino | 🟡 |
-| CICIDS2017 - Balanced | 🟡 |
+| CICIDS2017 - Sem XSS no treino | ✅ |
+| CICIDS2017 - Sem PortScan no treino | ✅ |
+| CICIDS2017 - Balanced | ✅ |
 | LycoS - Completo | ✅ |
-| LycoS - Sem XSS no treino | 🟡 |
-| LycoS - Sem PortScan no treino | 🟡 |
-| LycoS - Balanced | 🟡 |
+| LycoS - Sem XSS no treino | ✅ |
+| LycoS - Sem PortScan no treino | ✅ |
+| LycoS - Balanced | ✅ |
 
 ### Treinamento DNN — Com Redução de Dimensionalidade
 
@@ -121,15 +113,7 @@ Os cenários de treino são: **Completo** (todas as classes), **Sem XSS** e **Se
 
 | Script | Status |
 |---|---|
-| CICIDS2017 - Teste completo | 🟡 (script criado, não executado) |
-| CICIDS2017 - Teste com XSS | 🟡 (script criado, não executado) |
-| CICIDS2017 - Teste com PortScan | 🟡 (script criado, não executado) |
-| LycoS - Teste completo | ❌ |
-| LycoS - Teste com XSS | ❌ |
-| LycoS - Teste com PortScan | ❌ |
-| CICIDS2017 + MDI - Teste completo | ❌ |
-| CICIDS2017 + MDI - Teste com XSS | ❌ |
-| CICIDS2017 + MDI - Teste com PortScan | ❌ |
-| LycoS + MDI - Teste completo | ❌ |
-| LycoS + MDI - Teste com XSS | ❌ |
-| LycoS + MDI - Teste com PortScan | ❌ |
+| CICIDS2017 - Teste completo | 🟡 |
+| LycoS - Teste completo | 🟡 |
+| CICIDS2017 + MDI - Teste completo | 🟡 |
+| LycoS + MDI - Teste completo | 🟡 |
