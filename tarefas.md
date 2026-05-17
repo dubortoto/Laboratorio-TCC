@@ -14,18 +14,19 @@ Os cenários de treino são: **Completo** (todas as classes), **Sem XSS** e **Se
 - [x] Sem PortScan no treino
 
 ### Melhoria A — LycoS-IDS2017, sem redução de dimensionalidade
-> Dados disponíveis para todos os cenários (`dataset tratado/lycos-cicids2017/Sem Redução de Dimensionalidade/`). Faltam apenas os scripts.
+> Scripts criados (🟡). Falta executar e coletar os resultados.
 - [ ] Completo (RF + DNN)
 - [ ] Sem XSS no treino (RF + DNN)
 - [ ] Sem PortScan no treino (RF + DNN)
 
 ### Melhoria B — CICIDS2017, com redução de dimensionalidade (MDI via RF)
+> Scripts criados (🟡). Falta executar e coletar os resultados.
 - [ ] Completo (DNN com features reduzidas)
 - [ ] Sem XSS no treino
 - [ ] Sem PortScan no treino
 
 ### Melhoria C — LycoS-IDS2017, com redução de dimensionalidade (MDI via RF)
-> Dados de entrada disponíveis para todos os cenários. Scripts de redução existem (🟡); faltam scripts de treino DNN.
+> Scripts criados (🟡). Falta executar e coletar os resultados.
 - [ ] Completo (DNN com features reduzidas)
 - [ ] Sem XSS no treino
 - [ ] Sem PortScan no treino
@@ -84,12 +85,12 @@ Os cenários de treino são: **Completo** (todas as classes), **Sem XSS** e **Se
 
 | Script | Status |
 |---|---|
-| DNN - Completo | ❌ |
-| RF - Completo | ❌ |
-| DNN - Sem XSS no treino | ❌ |
-| RF - Sem XSS no treino | ❌ |
-| DNN - Sem PortScan no treino | ❌ |
-| RF - Sem PortScan no treino | ❌ |
+| DNN - Completo | 🟡 |
+| RF - Completo | 🟡 |
+| DNN - Sem XSS no treino | 🟡 |
+| RF - Sem XSS no treino | 🟡 |
+| DNN - Sem PortScan no treino | 🟡 |
+| RF - Sem PortScan no treino | 🟡 |
 
 ### Redução de Dimensionalidade (scripts MDI via RF)
 
@@ -111,12 +112,12 @@ Os cenários de treino são: **Completo** (todas as classes), **Sem XSS** e **Se
 | Script | Status |
 |---|---|
 | CICIDS2017 - Completo | 🟡 |
-| CICIDS2017 - Sem XSS no treino | ❌ |
-| CICIDS2017 - Sem PortScan no treino | ❌ |
+| CICIDS2017 - Sem XSS no treino | 🟡 |
+| CICIDS2017 - Sem PortScan no treino | 🟡 |
 | CICIDS2017 - Balanced | 🟡 |
 | LycoS - Completo | 🟡 |
-| LycoS - Sem XSS no treino | ❌ |
-| LycoS - Sem PortScan no treino | ❌ |
+| LycoS - Sem XSS no treino | 🟡 |
+| LycoS - Sem PortScan no treino | 🟡 |
 | LycoS - Balanced | 🟡 |
 
 ### Não Supervisionados (Autoencoder)
